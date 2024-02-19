@@ -1,8 +1,14 @@
 import streamlit as st
 import pandas as pd
+from datetime import date
 from src.data_management import load_housing_data, load_heritage_data, load_pkl_file
 from src.machine_learning.predictive_analysis_ui import predict_price, predict_inherited_house_price
 
+# Function to load pipelines
+def load_pipeline(pkl_filename):
+    return load_pkl_file(pkl_filename)
+
+# Define the function to draw input widgets and collect user input
 def DrawInputsWidgets():
     try:
         df = load_housing_data()
@@ -10,9 +16,7 @@ def DrawInputsWidgets():
         percentageMin, percentageMax = 0.4, 2.0
         X_live = pd.DataFrame([], index=[0])
 
-        col1, col2, col3 = st.beta_columns(3)
-        col4, col5, col6 = st.beta_columns(3)
-
+        col1, col2, col3, col4, col5, col6 = st.beta_columns(6)
 
         with col1:
             feature = "TotalBsmtSF"
@@ -56,11 +60,10 @@ def DrawInputsWidgets():
 
         with col5:
             feature = "KitchenQual"
-            options = ["Ex", "Gd", "TA", "Fa", "Po"]
             X_live[feature] = st.selectbox(
                 label=feature,
-                options=options,
-                index=options.index("TA")
+                options=["Ex", "Gd", "TA", "Fa", "Po"],
+                index=2  # Default to 'TA'
             )
 
         with col6:
@@ -79,10 +82,21 @@ def DrawInputsWidgets():
         st.error(f"An error occurred: {str(e)}")
         return None
 
+# Update the predict_price function to use both pipelines
+def predict_price(X_live, preprocessing_pipeline, model_pipeline):
+    # Apply preprocessing
+    X_preprocessed = preprocessing_pipeline.transform(X_live)
+    
+    # Make predictions with the model pipeline
+    price_prediction = model_pipeline.predict(X_preprocessed)
+    
+    return price_prediction
+
+# Streamlit interface function
 def page_predict_price_body():
-    version = 'v4'
-    regression_pipe = load_pkl_file(f"outputs/ml_pipeline/predict_price/{version}/regression_pipeline.pkl")
-    house_features = ["TotalBsmtSF", "GarageArea", "YearBuilt", "2ndFlrSF", "KitchenQual", "YearRemodAdd"]
+    # Load both pipelines
+    preprocessing_pipeline = load_pipeline("path/to/preprocessing_pipeline.pkl")
+    model_pipeline = load_pipeline("path/to/model_pipeline.pkl")
 
     st.write("### Predicting sales price of inherited houses (BR2)")
     st.info(
@@ -109,9 +123,9 @@ def page_predict_price_body():
     if X_live is not None:
         if st.button("Predict Sale Price"):
             try:
-                # Ensure X_live is properly preprocessed for 'KitchenQual' before prediction
-                price_prediction = predict_price(X_live, house_features, regression_pipe)
-                st.success(f"Predicted Sale Price: ${price_prediction:,.2f}")
+                # Pass both pipelines to the prediction function
+                price_prediction = predict_price(X_live, preprocessing_pipeline, model_pipeline)
+                st.success(f"Predicted Sale Price: ${price_prediction[0]:,.2f}")
             except Exception as e:
                 st.error(f"An error occurred during prediction: {e}")
 
