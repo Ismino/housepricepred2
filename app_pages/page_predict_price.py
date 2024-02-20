@@ -13,7 +13,10 @@ def DrawInputsWidgets():
         X_live = pd.DataFrame([], index=[0])
 
         # Define columns for Streamlit layout
-        col1, col2, col3, col4, col5 = st.beta_columns(5)
+        #col1, col2, col3, col4, col5 = st.beta_columns(5)
+        col1, col2 = st.beta_columns([3, 1])
+        col3, col4 = st.beta_columns([3, 1])
+        col5, col6 = st.beta_columns([3, 1])
 
         # Input for '2ndFlrSF'
         with col1:
