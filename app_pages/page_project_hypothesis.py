@@ -1,10 +1,13 @@
 import streamlit as st
 
+# This function sets up a page in the Streamlit app that discusses the project's hypotheses and their outcomes.
 def page_project_hypothesis_body():
 
     st.write("## Insights on Property Features and Their Impact on Sale Prices: The Hypoteses and outcome")
 
-    # Insights derived from the correlation study in the "03 - Correlation_Study" notebook 
+    # Insights derived from the correlation study in the "03 - SalesPriceCorrelationStudy" notebook 
+    # The markdown method is used to display the insights in a formatted manner. 
+    # Each insight is presented as a hypothesis followed by the findings from the data analysis.
     st.markdown(
        """
        **Insight 1: The Influence of Property Size.**  
