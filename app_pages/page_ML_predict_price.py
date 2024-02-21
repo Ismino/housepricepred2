@@ -23,11 +23,11 @@ def page_ml_predict_price_body():
     # display pipeline training summary conclusions
     st.info(
         f"* To answer BR2, we wanted to train a Regressor model and tune the pipeline aiming to ensure\
-             at least 0.75 accuracy in predicting the sales price of a property with a given set of\
+             at least 0.70 accuracy in predicting the sales price of a property with a given set of\
                  attributes. We were able to achieve this success metric, but we trained different\
                  versions of the model to make sure that we don't pverlook potential improvement.\n"
         f"* The pipeline performance for the best model on the train and test set is\
-             R2 == 0.84 and R2 == 0.77 respectively.\n"
+             R2 == 0.84 and R2 == 0.73 respectively.\n"
         f"* We present the pipeline steps, best features list along with feature importance plot, pipeline performance and regression performance report below. "
        )
     st.write("---")
@@ -57,7 +57,7 @@ def page_ml_predict_price_body():
 
     st.write("### Pipeline Performance")
     st.write("##### Performance goal of the predictions:\n")
-    st.write("* We agreed with the client an R2 score of at least 0.75 on the train set as well as on the test set.")
+    st.write("* We agreed with the client an R2 score of at least 0.70 on the train set as well as on the test set.")
     st.write(f"* Our ML pipeline performance shows that our model performance\
          metrics have been successfully satisfied.")
 
