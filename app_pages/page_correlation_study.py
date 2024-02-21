@@ -8,8 +8,8 @@ import numpy as np
 # Set the style for seaborn plots
 sns.set_style("whitegrid")
 
-# Define global variables for repeated use
-VARS_TO_STUDY = ['1stFlrSF', 'GarageArea', 'GrLivArea', 'KitchenQual', 'MasVnrArea', 'OpenPorchSF', 'OverallQual', 'TotalBsmtSF', 'YearBuilt', 'YearRemodAdd']
+# Updated VARS_TO_STUDY to include the specified features
+VARS_TO_STUDY = ['2ndFlrSF', 'GarageArea', 'LotArea', 'TotalBsmtSF', 'YearBuilt', '1stFlrSF', 'GrLivArea', 'KitchenQual', 'MasVnrArea', 'OpenPorchSF', 'OverallQual', 'YearRemodAdd']
 TARGET_VAR = 'SalePrice'
 
 def page_correlation_study_body():
@@ -76,50 +76,48 @@ def display_heatmaps(df):
 
 def plot_target_hist(df, target_var):
     """
-    Function to plot a histogram of the target variable
+    Function to plot a histogram of the target variable.
     """
-    fig, axes = plt.subplots(figsize=(12, 6))
+    fig, ax = plt.subplots(figsize=(12, 6))
     sns.histplot(data=df, x=target_var, kde=True)
     plt.title(f"Distribution of {target_var}", fontsize=20)       
     st.pyplot(fig)
 
 def plot_reg(df, col, target_var):
     """
-    Generate scatter plot
+    Generate scatter plot with regression line.
     """
-    fig, axes = plt.subplots(figsize=(12, 6))
+    fig, ax = plt.subplots(figsize=(12, 6))
     sns.regplot(data=df, x=col, y=target_var, ci=None)
     plt.title(f"Regression plot of {target_var} against {col}", fontsize=20)        
     st.pyplot(fig)
 
 def plot_line(df, col, target_var):
     """
-    Generate line plot
+    Generate line plot.
     """
-    fig, axes = plt.subplots(figsize=(12, 6))
+    fig, ax = plt.subplots(figsize=(12, 6))
     sns.lineplot(data=df, x=col, y=target_var)
     plt.title(f"Line plot of {target_var} against {col}", fontsize=20)        
     st.pyplot(fig)
 
 def plot_box(df, col, target_var):
     """
-    Generate box plot
+    Generate box plot.
     """
-    fig, axes = plt.subplots(figsize=(12, 6))
+    fig, ax = plt.subplots(figsize=(12, 6))
     sns.boxplot(data=df, x=col, y=target_var) 
     plt.title(f"Box plot of {target_var} against {col}", fontsize=20)
     st.pyplot(fig)
 
 def calculate_corr_and_pps(df):
     """
-    Function to calculate correlations and pps.
+    Function to calculate Pearson, Spearman correlations, and Predictive Power Score (PPS).
     """
-    df_corr_spearman = df.corr(method="spearman")
     df_corr_pearson = df.corr(method="pearson")
-
+    df_corr_spearman = df.corr(method="spearman")
     pps_matrix_raw = pps.matrix(df)
     pps_matrix = pps_matrix_raw.filter(['x', 'y', 'ppscore']).pivot(columns='x', index='y', values='ppscore')
-
     return df_corr_pearson, df_corr_spearman, pps_matrix
 
 def display_heatmap(df, threshold, title):
@@ -139,7 +137,7 @@ def house_price_per_variable(df_eda):
         if len(df_eda[col].unique()) <= 10:
             plot_box(df_eda, col, TARGET_VAR)
         else:
-            if col in ['YearBuilt', 'YearRemodAdd']:
+            if col in ['YearBuilt']:
                 plot_line(df_eda, col, TARGET_VAR)
             else:
                 plot_reg(df_eda, col, TARGET_VAR)
