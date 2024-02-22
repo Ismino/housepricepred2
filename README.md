@@ -2,9 +2,9 @@
 
 * This project is made with ML-based tool designed to forecast the sale prices of residential properties. It operates by analyzing various attributes of houses, such as size, location, age, and other relevant features, to generate accurate price predictions. This solution offers a valuable resource for potential homebuyers, sellers, and real estate professionals, providing them with data-driven insights to inform their decisions in the housing market.
 
-![Screenshot]()
+![Screenshot](/assets/images/summary.png)
 
-You find the dashboard [on Heroku]().
+You find the dashboard [on Heroku](https://pricepred2-1de5ea4de904.herokuapp.com/).
 
 1. [Dataset Content](#1-dataset-content)
 2. [Business Requirements](#2-business-requirements)
@@ -175,7 +175,7 @@ Business Objectives:
 * The project is guided by two primary business objectives:
 * Attribute Correlation Analysis (BR1): The client seeks insights into how different house characteristics influence their market value. This involves creating visual representations that highlight the relationships between house features and their sales prices.
 * Price Prediction (BR2): The client aims to estimate the market value of four houses they have inherited, as well as other properties in Ames, Iowa. This entails using machine learning techniques to predict the potential sale prices based on house attributes.
-![Screenshot]()
+![Screenshot](/assets/images/summary.png)
 
 * 2. House prices Correlation Study (BR1)
 
@@ -207,7 +207,7 @@ Comprehensive heatmaps, including Pearson and Spearman Correlation Heatmaps, alo
 * Box plots for categorical features.
 * Scatter plots for continuous variables.
 * Line plots for time-related attributes.
-![Screenshot]()
+![Screenshot](/assets/images/pricecorr.png)
 
 * 3. Hypotheses and validation
 
@@ -223,7 +223,7 @@ Influence of Age and Renovation on Property Value:
 
 * Hypothesis: The age of a property and the recency of renovations are believed to significantly impact its market value, with newer or recently renovated properties expected to fetch higher prices.
 * Verification: The hypothesis is corroborated. Examination of sale prices in relation to the year of construction and renovation history showed a moderate positive correlation, confirming that newer or updated properties tend to be valued higher in the market.
-![Screenshot]()
+![Screenshot](/assets/images/hypothes.png)
 
 * 4. Predict House price
 
@@ -241,7 +241,8 @@ User-Driven Price Prediction Tool:
 Sale Price Prediction Activation:
 
 * A prominently placed “Predict Sale Price” button is included. When clicked, this button feeds the user-provided house data into our Machine Learning pipeline. The system then processes this information to estimate the house's sale price, showcasing the power and versatility of our predictive model.
-![Screenshot]()
+![Screenshot](/assets/images/predictpage1.png)
+![Screenshot](/assets/images/predictpage2.png)
 
 * 5. House Price Predictor, The ML machine
 
@@ -262,7 +263,7 @@ Sale Price Prediction Activation:
 * Model Performance Metrics:
 
 * A thorough presentation of the regression model's performance metrics. This section delves into the effectiveness of the model, discussing various measures such as accuracy, precision, recall, and any other relevant statistics that indicate the model’s predictive power and reliability.
-![Screenshot]()
+![Screenshot](/assets/images/MLpredictlast.png)
 
 ## Unfixed Bugs
 * There is no unfixed bugs that i know about
