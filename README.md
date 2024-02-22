@@ -137,26 +137,26 @@ There are two main objectives for this project:
    
    #### Regression Model
 
-    * To fulfill our second business requirement (BR2), our plan is to develop a Machine Learning (ML) model.
+   * To fulfill our second business requirement (BR2), our plan is to develop a Machine Learning (ML) model.
 
-    * This model's purpose is to assist our client in estimating the sale prices of four specific inherited properties, as well as for any other comparable properties.
+   * This model's purpose is to assist our client in estimating the sale prices of four specific inherited properties, as well as for any other comparable properties.
 
-    * We've chosen to employ a regression model for this task, as our primary variable of interest – the sale price – is a numeric value
+   * We've chosen to employ a regression model for this task, as our primary variable of interest – the sale price – is a numeric value
 
-    * This task will be handled as a supervised learning problem focusing on a single dimension.
+   * This task will be handled as a supervised learning problem focusing on a single dimension.
     
-         * Our objective is to provide the client with valuable insights into the characteristics of houses that can potentially enhance their sale value. We've set specific performance targets for the model: achieving a minimum R2 score of 0.75 in both training and testing phases.
+      * Our objective is to provide the client with valuable insights into the characteristics of houses that can potentially enhance their sale value. We've set specific performance targets for the model: achieving a minimum R2 score of 0.75 in both training and testing phases.
 
-         * A prediction accuracy drop below 70% for any individual property will be considered a failure of the model. 
+      * A prediction accuracy drop below 70% for any individual property will be considered a failure of the model. 
 
-    * The model's output will be the projected sale price in U.S. dollars, based on the relevant house attributes.
+   * The model's output will be the projected sale price in U.S. dollars, based on the relevant house attributes.
 
-    * The client has provided data on four inherited properties, and our model will predict both individual and cumulative sale prices for these.
+   * The client has provided data on four inherited properties, and our model will predict both individual and cumulative sale prices for these.
 
-        * Additionally, the model will support real-time predictions for other properties, allowing users to input key features for immediate price estimates. This dual functionality caters to the client’s current and future property valuation needs.
+   * Additionally, the model will support real-time predictions for other properties, allowing users to input key features for immediate price estimates. This dual functionality caters to the client’s current and future property valuation needs.
 
-    * To avoid the potential inaccuracies of heuristic valuations, we are adopting a data-driven approach. The client’s local real estate knowledge may not accurately reflect the property values in Ames, Iowa, hence the reliance on a more analytical approach.
-    * Our model, named 'HousePriceIssue' (House Price Issues), will utilize a public dataset from Ames, Iowa. This dataset comprises around 1,500 property listings with 22 features. During the data preparation phase, we'll exclude variables with significant missing data. Our focus will be on the 'SalePrice' as the target variable, with all other relevant features included in the analysis.    
+   * To avoid the potential inaccuracies of heuristic valuations, we are adopting a data-driven approach. The client’s local real estate knowledge may not accurately reflect the property values in Ames, Iowa, hence the reliance on a more analytical approach.
+   * Our model, named 'HousePriceIssue' (House Price Issues), will utilize a public dataset from Ames, Iowa. This dataset comprises around 1,500 property listings with 22 features. During the data preparation phase, we'll exclude variables with significant missing data. Our focus will be on the 'SalePrice' as the target variable, with all other relevant features included in the analysis.    
 
 
 ## Dashboard Design
