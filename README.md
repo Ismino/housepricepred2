@@ -300,3 +300,7 @@ Sale Price Prediction Activation:
 ### Content 
 
 * The content was prod´vided from the kaggle dataset. 
+
+### 
+
+* I did this project in another repo at first but when i redid after getting it back from the assesment team it to fix my errors i didnt create a new kanban, I used my already created kanban. 
