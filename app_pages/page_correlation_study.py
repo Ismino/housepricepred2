@@ -53,7 +53,7 @@ def display_study_summary():
         "Observations from the correlation analysis and heatmaps reveal relationships "
         "between house attributes and SalePrice. Some relationships are less clear at higher values."
     )
-    st.info(
+    st.success(
         """
         * Conclusion : The study's findings suggest a strong correlation between sale price and certain key property characteristics, notably size, build quality, and the year of construction. It is evident that these features play a significant role in determining the market value of a home.
         * Area of Garage: It's observed that properties fetching lower market prices typically lack a garage, while those with a minimum garage space of 600 square feet usually command premium prices.
