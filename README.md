@@ -106,6 +106,8 @@ There are two main objectives for this project:
 ## Hypothesis and how to validate?
 * Property Size Impact: My theory posits that the bigger a property is, the more it should fetch in the market. To test this, I'll analyze the relationship between house size metrics and their sale prices.
 
+* Garage Size Impact: My theory posits that the bigger the Garage Area is, the higher the value of the property. To test this, I'll analyze the relationship between garage area size metrics and their sale prices.
+
 * Importance of Quality and Condition: I believe that the quality and condition of a house greatly affect its market value. Higher quality ratings, like those for the kitchen or the overall construction, should correlate with higher prices. I'll verify this by examining how these quality indicators relate to the sale price.
 
 * Age and Renovation Influence: My assumption is that a property's age and any recent renovations play a crucial role in determining its value. I intend to investigate this by looking at the construction year, any recent remodels, and how these factors influence the property’s market value.
