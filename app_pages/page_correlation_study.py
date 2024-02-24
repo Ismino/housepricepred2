@@ -53,6 +53,14 @@ def display_study_summary():
         "Observations from the correlation analysis and heatmaps reveal relationships "
         "between house attributes and SalePrice. Some relationships are less clear at higher values."
     )
+    st.info(
+        """
+        * Conclusion : The study's findings suggest a strong correlation between sale price and certain key property characteristics, notably size, build quality, and the year of construction. It is evident that these features play a significant role in determining the market value of a home.
+        * Area of Garage: It's observed that properties fetching lower market prices typically lack a garage, while those with a minimum garage space of 600 square feet usually command premium prices.
+        * Basement Area: A trend shows that houses with basements that offer 1,200 square feet of space or more are likely to be priced higher in the market. In contrast, those with no basement or less than 1,000 square feet of basement space typically fall into the lower price bracket.
+        * Construction Year: Homes constructed prior to the year 1990 rarely fall into the category of high-priced market sales.
+        """
+    )
 
 def display_data_visualizations(df):
     """
